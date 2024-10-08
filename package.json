@@ -19,7 +19,9 @@
 		"terser": "^5.34.1"
 	},
 	"scripts": {
-		"build": "terser --compress --mangle -o build/index.js -- src/index.js",
+		"build": "npm run build:main && npm run build:docs",
+		"build:main": "terser --compress --mangle -o build/index.js -- src/index.js",
+		"build:docs": "terser --compress --mangle -o docs/js/index.js -- src/index.js",
 		"lint": "eslint .",
 		"fix": "eslint . --fix",
 		"lint:package": "node ./node_modules/npm-package-json-lint/dist/cli.js ./"
