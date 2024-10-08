@@ -1,0 +1,27 @@
+body {
+	color: #333;
+	font-family: sans-serif;
+}
+
+.is-inactive {
+	display: none;
+}
+
+.wp-block-button a {
+	display: block;
+	font-size: 2rem;
+	background: #222;
+	color: #fff;
+	border-radius: 5px;
+	padding: 1rem;
+	margin: 1rem;
+	width: max-content;
+	cursor: pointer;
+}
+
+.wp-block-group {
+	margin-left: 1rem;
+	padding: 1rem 1rem 1rem 0;
+	width: 90%;
+	max-width: 640px;
+}
