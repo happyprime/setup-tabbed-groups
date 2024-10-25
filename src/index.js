@@ -14,7 +14,7 @@
 	 */
 	const openTabbedGroup = (tabIndex, containerIndex) => {
 		const tabs = containers[containerIndex].querySelectorAll(
-			'.wp-block-buttons > .wp-block-button'
+			':scope >.wp-block-buttons > .wp-block-button > .wp-block-button__link'
 		);
 
 		tabs.forEach((tab, newIndex) => {
