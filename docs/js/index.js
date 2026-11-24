@@ -1,1 +1,47 @@
-{const e=document.querySelectorAll(".js-tabbed-groups"),t=(t,l)=>{e[l].querySelectorAll(":scope >.wp-block-buttons > .wp-block-button > .wp-block-button__link").forEach(((e,l)=>{const n=e.closest(".wp-block-buttons").nextElementSibling;t!==l?(e.ariaSelected=!1,n.classList.add("is-inactive")):(e.ariaSelected=!0,n.classList.remove("is-inactive"))}))},l=(e,l,n)=>{const a=e.closest(".wp-block-buttons").nextElementSibling;e.id="tab-"+n+"-"+l,e.tabIndex=0,e.role="tab",e.setAttribute("aria-controls","panel-"+n+"-"+l),a.role="tabpanel",a.id="panel-"+n+"-"+l,a.setAttribute("aria-labelledby","tab-"+n+"-"+l),0!==l?(e.ariaSelected=!1,a.classList.add("is-inactive")):e.ariaSelected=!0,e.addEventListener("click",(function(e){e.preventDefault(),t(l,n)})),e.addEventListener("keydown",(function(e){"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),t(l,n))}))};e.forEach(((e,t)=>{const n=e.querySelectorAll(".js-tabbed-groups > .wp-block-buttons .wp-element-button");n.length&&(e.role="tablist",n.forEach(((e,n)=>{l(e,n,t)})))}))}
+{
+	const e = document.querySelectorAll('.js-tabbed-groups'),
+		t = (t, l) => {
+			e[l]
+				.querySelectorAll(
+					':scope >.wp-block-buttons > .wp-block-button > .wp-block-button__link'
+				)
+				.forEach((e, l) => {
+					const n = e.closest('.wp-block-buttons').nextElementSibling;
+					t !== l
+						? ((e.ariaSelected = !1),
+							n.classList.add('is-inactive'))
+						: ((e.ariaSelected = !0),
+							n.classList.remove('is-inactive'));
+				});
+		},
+		l = (e, l, n) => {
+			const a = e.closest('.wp-block-buttons').nextElementSibling;
+			(e.id = 'tab-' + n + '-' + l),
+				(e.tabIndex = 0),
+				(e.role = 'tab'),
+				e.setAttribute('aria-controls', 'panel-' + n + '-' + l),
+				(a.role = 'tabpanel'),
+				(a.id = 'panel-' + n + '-' + l),
+				a.setAttribute('aria-labelledby', 'tab-' + n + '-' + l),
+				0 !== l
+					? ((e.ariaSelected = !1), a.classList.add('is-inactive'))
+					: (e.ariaSelected = !0),
+				e.addEventListener('click', function (e) {
+					e.preventDefault(), t(l, n);
+				}),
+				e.addEventListener('keydown', function (e) {
+					('Enter' !== e.key && ' ' !== e.key) ||
+						(e.preventDefault(), t(l, n));
+				});
+		};
+	e.forEach((e, t) => {
+		const n = e.querySelectorAll(
+			'.js-tabbed-groups > .wp-block-buttons .wp-element-button'
+		);
+		n.length &&
+			((e.role = 'tablist'),
+			n.forEach((e, n) => {
+				l(e, n, t);
+			}));
+	});
+}
